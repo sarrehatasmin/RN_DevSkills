@@ -1,10 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, ActivityIndicator, SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
-import Text from './src/components/text/text';
+import Home from './src/screens/Home';
+import Details from './src/screens/Details';
 
 export default function App() {
+
+  const Stack = createNativeStackNavigator();
 
   let [fontsLoaded] = useFonts({
     'Antonio-Medium': require('./assets/fonts/Antonio-Medium.ttf'),
@@ -16,9 +21,13 @@ export default function App() {
     return <ActivityIndicator />;
   }else{
     return (
-    <SafeAreaView style={styles.container}>
-      <Text preset="h1">Hello</Text>
-    </SafeAreaView>
+      <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
+        <Stack.Screen name="Details" component={Details} options={{headerShown: false}} />
+      </Stack.Navigator>
+      <StatusBar style="light" />
+    </NavigationContainer>
   );
   }
 }
