@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
+import { StyleSheet, View, ActivityIndicator, SafeAreaView } from 'react-native';
 import { useFonts } from 'expo-font';
 import Text from './src/components/text/text';
 
@@ -16,10 +16,9 @@ export default function App() {
     return <ActivityIndicator />;
   }else{
     return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text preset="h1">Hello</Text>
+    </SafeAreaView>
   );
   }
 }
@@ -27,7 +26,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },

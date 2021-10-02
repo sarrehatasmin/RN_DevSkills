@@ -14,7 +14,7 @@ const BOLD = {
     color: colors.white,
 }
 
-export const preset = {
+export const presets = {
     default: BASE,
     bold: BOLD,
     h1: {
